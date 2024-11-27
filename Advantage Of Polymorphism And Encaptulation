@@ -1,0 +1,50 @@
+class Vehicle:
+    def __init__(self, brand, model):
+        # Encapsulation
+        self.__brand = brand
+        self.__model = model
+
+    # Getter for brand and model
+    def get_details(self):
+        return f"Brand: {self.__brand}, Model: {self.__model}"
+
+    # Setter for brand and model
+    def set_details(self, brand, model):
+        self.__brand = brand
+        self.__model = model
+
+    # Polymorphism
+    def start_engine(self):
+        raise NotImplementedError("This method should be overridden by subclasses")
+
+
+class Car(Vehicle):
+    def start_engine(self):
+        return "Car engine started with a key!"
+
+
+class Motorcycle(Vehicle):
+    def start_engine(self):
+        return "Motorcycle engine started with a button!"
+
+
+class Truck(Vehicle):
+    def start_engine(self):
+        return "Truck engine started with a heavy-duty key!"
+
+
+# SHOW Encapsulation
+car = Car("Toyota", "Corolla")
+print(car.get_details())  # Accessing encapsulated data
+car.set_details("Honda", "Civic")  # Modifying encapsulated data
+print(car.get_details())
+
+# Demonstrating Polymorphism
+vehicles = [
+    Car("Tesla", "Model S"),
+    Motorcycle("Yamaha", "YZF-R3"),
+    Truck("Volvo", "FH16"),
+]
+
+for vehicle in vehicles:
+    print(f"{vehicle.get_details()} - {vehicle.start_engine()}")
