@@ -1,0 +1,16 @@
+#import library for regular expresion
+import re
+
+# Input string
+str = 'Layla is a good data scientist'
+
+# Regular expression to find words with exactly two 'a's
+regex = r'\b\w*a\w*a\w*\b'
+
+# Find all matches
+matches = re.findall(regex, str)
+
+# to ensure only words with exactly 2 'a's are included
+matches = [word for word in matches if word.count('a') == 2]
+
+print(matches)
